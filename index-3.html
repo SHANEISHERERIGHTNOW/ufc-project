@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UFC Fighter Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-ufc">UFC</span>
+        <span class="logo-tag">FIGHTER PAGE</span>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-tab active" data-page="events">🗓 EVENTS</button>
+        <button class="nav-tab" data-page="search">🔍 FIGHTER SEARCH</button>
+        <button class="nav-tab" data-page="tickets">🎟 TICKETS</button>
+      </nav>
+    </div>
+    <div class="header-ticker">
+      <div class="ticker-inner">
+        <span>🏆 Strickland def. Chimaev — Split Decision · UFC 328</span>
+        <span>🏆 Joshua Van def. Taira — TKO R5 · UFC 328</span>
+        <span>🥊 UFC Freedom 250 — June 14, The White House</span>
+        <span>🏆 Prates def. Della Maddalena — TKO R3 · Perth</span>
+        <span>🥊 Topuria vs. Gaethje — Lightweight Unification</span>
+        <span>🏆 Carlos Ulberg — NEW LHW Champion · UFC 327</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE: EVENTS -->
+  <div id="page-events" class="page active">
+    <section class="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">2026 SEASON</p>
+        <h1 class="hero-title">UFC <span class="red">EVENTS</span></h1>
+        <p class="hero-sub">Click any event card to see every fight on the card — from early prelims to the main event.</p>
+        <a href="#events-grid" class="hero-cta">BROWSE EVENTS ↓</a>
+      </div>
+    </section>
+    <section class="content-section" id="events-grid">
+      <div class="inner-wrap">
+        <div class="section-header">
+          <div class="section-label">ALL UFC EVENTS</div>
+          <h2 class="section-title">FIGHT CARDS</h2>
+          <p class="section-hint">👆 Click any event card to expand the full fight card</p>
+          <div class="filter-bar">
+            <button class="filter-btn active" data-efilter="all">ALL EVENTS</button>
+            <button class="filter-btn" data-efilter="upcoming">📅 UPCOMING</button>
+            <button class="filter-btn" data-efilter="past">✓ PAST RESULTS</button>
+          </div>
+        </div>
+        <div id="eventsGrid"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PAGE: FIGHTER SEARCH -->
+  <div id="page-search" class="page">
+    <section class="hero hero-purple">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">FIGHTER DATABASE</p>
+        <h1 class="hero-title">FIGHTER <span class="purple">SEARCH</span></h1>
+        <p class="hero-sub">Search any current UFC fighter — AI powered, live stats and fight history.</p>
+        <div class="search-box-wrap">
+          <span class="search-icon-left">🔍</span>
+          <input type="text" id="fighterSearchInput" class="search-input"
+            placeholder="e.g. Charles Oliveira, Islam Makhachev..."
+            autocomplete="off" spellcheck="false" />
+          <button class="search-clear" id="searchClear">✕</button>
+        </div>
+        <div class="search-hints">
+          <span>Try:</span>
+          <button class="hint-pill" data-hint="Oliveira">Oliveira</button>
+          <button class="hint-pill" data-hint="Makhachev">Makhachev</button>
+          <button class="hint-pill" data-hint="Chimaev">Chimaev</button>
+          <button class="hint-pill" data-hint="Topuria">Topuria</button>
+          <button class="hint-pill" data-hint="Pereira">Pereira</button>
+          <button class="hint-pill" data-hint="Lightweight">Lightweight</button>
+        </div>
+      </div>
+    </section>
+    <section class="content-section">
+      <div class="inner-wrap">
+        <div id="searchResults"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PAGE: TICKETS -->
+  <div id="page-tickets" class="page">
+    <section class="hero hero-dark">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">GET IN THE OCTAGON</p>
+        <h1 class="hero-title">BUY <span class="red">TICKETS</span></h1>
+        <p class="hero-sub">Choose an upcoming UFC event and secure your seat. Experience the fights live.</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="inner-wrap">
+
+        <!-- Big featured ticket -->
+        <div class="ticket-feature">
+          <div class="ticket-feature-info">
+            <div class="ticket-badge ppv-col">PPV — TITLE FIGHT</div>
+            <div class="ticket-feature-name">UFC FREEDOM 250</div>
+            <div class="ticket-feature-matchup">
+              <span>TOPURIA</span>
+              <span class="red">VS</span>
+              <span>GAETHJE</span>
+            </div>
+            <div class="ticket-feature-belt">🏆 LIGHTWEIGHT CHAMPIONSHIP UNIFICATION</div>
+            <div class="ticket-feature-meta">
+              <span>📅 June 14, 2026</span>
+              <span>📍 Washington D.C.</span>
+              <span>🏟 The White House</span>
+            </div>
+          </div>
+          <div class="ticket-feature-price">
+            <div class="price-label">STARTING FROM</div>
+            <div class="price-big">$89</div>
+            <div class="price-sub">per person</div>
+            <button class="ticket-buy-btn" onclick="openModal('UFC FREEDOM 250','June 14, 2026','Washington D.C. — The White House','Topuria vs. Gaethje',89)">🎟 SELECT SEATS</button>
+          </div>
+        </div>
+
+        <!-- All upcoming events grid -->
+        <h2 class="tickets-grid-title">ALL UPCOMING EVENTS</h2>
+        <div class="tickets-grid">
+
+          <div class="ticket-card">
+            <div class="ticket-badge fn-col">FIGHT NIGHT</div>
+            <div class="tc-name">UFC FIGHT NIGHT 276</div>
+            <div class="tc-fight">Allen vs. Costa</div>
+            <div class="tc-info">📅 May 16, 2026 · 📍 Las Vegas, NV</div>
+            <div class="tc-venue">🏟 UFC Apex</div>
+            <div class="tc-bottom">
+              <span class="tc-price">From $35</span>
+              <button class="tc-btn" onclick="openModal('UFC Fight Night 276','May 16, 2026','Las Vegas — UFC Apex','Allen vs. Costa',35)">BUY TICKETS</button>
+            </div>
+          </div>
+
+          <div class="ticket-card featured-card">
+            <div class="ticket-badge ppv-col">PPV</div>
+            <div class="tc-name">UFC FREEDOM 250</div>
+            <div class="tc-fight">Topuria vs. Gaethje</div>
+            <div class="tc-info">📅 June 14, 2026 · 📍 Washington D.C.</div>
+            <div class="tc-venue">🏟 The White House</div>
+            <div class="tc-bottom">
+              <span class="tc-price">From $89</span>
+              <button class="tc-btn" onclick="openModal('UFC Freedom 250','June 14, 2026','Washington D.C.','Topuria vs. Gaethje',89)">BUY TICKETS</button>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-badge ppv-col">PPV</div>
+            <div class="tc-name">UFC 329</div>
+            <div class="tc-fight">Main Event TBA</div>
+            <div class="tc-info">📅 August 15, 2026 · 📍 TBA</div>
+            <div class="tc-venue">🏟 TBA</div>
+            <div class="tc-bottom">
+              <span class="tc-price">From $75</span>
+              <button class="tc-btn" onclick="openModal('UFC 329','August 15, 2026','TBA','Main Event TBA',75)">BUY TICKETS</button>
+            </div>
+          </div>
+
+          <div class="ticket-card">
+            <div class="ticket-badge ppv-col">PPV</div>
+            <div class="tc-name">UFC 330</div>
+            <div class="tc-fight">Main Event TBA</div>
+            <div class="tc-info">📅 September 1, 2026 · 📍 Philadelphia, PA</div>
+            <div class="tc-venue">🏟 Xfinity Mobile Arena</div>
+            <div class="tc-bottom">
+              <span class="tc-price">From $75</span>
+              <button class="tc-btn" onclick="openModal('UFC 330','September 1, 2026','Philadelphia, PA','Main Event TBA',75)">BUY TICKETS</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TICKET MODAL -->
+  <div id="ticketModal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="document.getElementById('ticketModal').classList.remove('open')">✕</button>
+      <div class="modal-top-icon">🎟</div>
+      <div class="modal-event-name" id="modal-name">UFC 329</div>
+      <div class="modal-meta" id="modal-date"></div>
+      <div class="modal-meta" id="modal-loc"></div>
+      <div class="modal-fight-label" id="modal-fight"></div>
+
+      <div class="modal-section-label">SELECT TICKET TIER</div>
+      <div class="modal-tiers">
+        <div class="modal-tier selected" onclick="pickTier(this, 0)">
+          <div class="tier-name">General Admission</div>
+          <div class="tier-price" id="price-ga">$89</div>
+        </div>
+        <div class="modal-tier" onclick="pickTier(this, 1)">
+          <div class="tier-name">Floor Seats</div>
+          <div class="tier-price" id="price-floor">$249</div>
+        </div>
+        <div class="modal-tier" onclick="pickTier(this, 2)">
+          <div class="tier-name">Ringside VIP</div>
+          <div class="tier-price" id="price-vip">$599</div>
+        </div>
+      </div>
+
+      <div class="modal-qty-row">
+        <span class="modal-section-label">QUANTITY</span>
+        <div class="qty-controls">
+          <button onclick="changeQty(-1)">−</button>
+          <span id="modal-qty">1</span>
+          <button onclick="changeQty(1)">+</button>
+        </div>
+      </div>
+
+      <div class="modal-total-row">
+        <span>TOTAL</span>
+        <span id="modal-total" class="red">$89</span>
+      </div>
+
+      <button class="modal-confirm-btn" onclick="confirmOrder()">CONFIRM ORDER</button>
+      <p class="modal-demo-note">Demo only — no real payment will be taken</p>
+    </div>
+  </div>
+
+  <!-- ORDER CONFIRMED MODAL -->
+  <div id="confirmModal" class="modal-overlay" onclick="document.getElementById('confirmModal').classList.remove('open')">
+    <div class="modal-box" style="text-align:center;">
+      <div style="font-size:3rem;margin-bottom:14px;">✅</div>
+      <div class="modal-event-name">ORDER CONFIRMED!</div>
+      <p class="modal-meta" id="confirm-msg" style="margin-top:10px;"></p>
+      <button class="modal-confirm-btn" style="margin-top:24px;" onclick="document.getElementById('confirmModal').classList.remove('open')">DONE</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">UFC <span class="red">FIGHTER PAGE</span></div>
+      <p class="footer-note">Fan-made site. Not affiliated with UFC or Zuffa LLC.</p>
+      <div class="footer-links">
+        <a href="https://ufc.com" target="_blank">UFC.com</a>
+        <a href="https://www.paramountplus.com" target="_blank">Paramount+</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
