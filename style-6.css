@@ -29,7 +29,8 @@ button { cursor: pointer; border: none; }
 .site-header {
   position: sticky; top: 0; z-index: 200;
   background: #ffffff;
-  border-bottom: 3px solid #e8001f;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #e8001f, #7c3aed) 1;
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 .header-inner {
@@ -43,7 +44,7 @@ button { cursor: pointer; border: none; }
 }
 .logo-tag {
   font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-  font-size: 0.82rem; letter-spacing: 5px; color: #b8860b; text-transform: uppercase;
+  font-size: 0.82rem; letter-spacing: 5px; color: #7c3aed; text-transform: uppercase;
 }
 .main-nav { display: flex; gap: 6px; }
 .nav-tab {
@@ -82,8 +83,8 @@ button { cursor: pointer; border: none; }
 .hero-bg-grid {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(232,0,31,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232,0,31,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,0,31,0.05) 1px, transparent 1px);
   background-size: 54px 54px;
 }
 .hero-purple .hero-bg-grid {
@@ -113,7 +114,7 @@ button { cursor: pointer; border: none; }
 }
 .hero-dark .hero-sub { color: rgba(255,255,255,0.7); }
 .hero-cta {
-  display: inline-block; background: #e8001f; color: #fff;
+  display: inline-block; background: linear-gradient(135deg, #e8001f, #7c3aed); color: #fff;
   font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
   font-size: 0.9rem; letter-spacing: 4px; padding: 14px 36px;
   text-transform: uppercase; transition: opacity 0.2s;
@@ -160,7 +161,7 @@ button { cursor: pointer; border: none; }
 /* ── SECTION LABELS ── */
 .section-label {
   font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem;
-  font-weight: 700; letter-spacing: 6px; color: #e8001f;
+  font-weight: 700; letter-spacing: 6px; color: #7c3aed;
   text-transform: uppercase; margin-bottom: 6px;
 }
 .section-title {
@@ -191,7 +192,7 @@ button { cursor: pointer; border: none; }
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   transition: box-shadow 0.2s;
 }
-.event-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.event-card:hover { box-shadow: 0 4px 20px rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.3); }
 .event-past { border-left-color: #16a34a; }
 
 .ec-summary {
@@ -232,12 +233,12 @@ button { cursor: pointer; border: none; }
 
 .ec-expand {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 6px; padding: 16px 20px; background: #fff5f5;
-  border: 1px solid #fecaca; min-width: 110px; text-align: center;
+  gap: 6px; padding: 16px 20px; background: #f5f3ff;
+  border: 1px solid #ddd6fe; min-width: 110px; text-align: center;
   transition: background 0.2s;
 }
-.ec-summary:hover .ec-expand { background: #fee2e2; }
-.ec-expand-icon  { font-size: 1.4rem; color: #e8001f; }
+.ec-summary:hover .ec-expand { background: #ede9fe; }
+.ec-expand-icon  { font-size: 1.4rem; color: #7c3aed; }
 .ec-expand-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.62rem; letter-spacing: 3px; color: #333; text-transform: uppercase; line-height: 1.4; }
 .ec-fight-count  { font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; letter-spacing: 2px; color: #888; background: #f0f0f0; padding: 2px 8px; }
 
@@ -247,9 +248,9 @@ button { cursor: pointer; border: none; }
 .ec-fullcard-inner { border-top: 1px solid #eee; }
 .ec-fullcard-title {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 12px 24px; background: #f5f5f5; border-bottom: 1px solid #eee;
+  padding: 12px 24px; background: #f5f3ff; border-bottom: 1px solid #ddd6fe;
   font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem;
-  letter-spacing: 3px; color: #333; text-transform: uppercase;
+  letter-spacing: 3px; color: #7c3aed; text-transform: uppercase;
 }
 .ec-fullcard-count { color: #888; font-weight: 400; }
 
@@ -267,7 +268,7 @@ button { cursor: pointer; border: none; }
 .ef-row-label { padding: 18px 14px; border-right: 1px solid #f0f0f0; display: flex; flex-direction: column; justify-content: center; gap: 4px; }
 .ef-label-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; }
 .efl-main      { color: #e8001f; }
-.efl-comain    { color: #b8860b; }
+.efl-comain    { color: #7c3aed; }
 .efl-other     { color: #999; }
 .ef-label-belt     { font-family: 'Barlow Condensed', sans-serif; font-size: 0.58rem; letter-spacing: 2px; color: #b8860b; }
 .ef-label-division { font-family: 'Barlow Condensed', sans-serif; font-size: 0.62rem; letter-spacing: 2px; color: #777; }
@@ -283,7 +284,7 @@ button { cursor: pointer; border: none; }
 .ef-fighter-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem; color: #111; }
 .ef-row-main .ef-fighter-name { font-size: 1.5rem; }
 .ef-fighter-info { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; color: #888; letter-spacing: 1px; margin-top: 3px; }
-.ef-w-tag { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.58rem; letter-spacing: 2px; padding: 2px 8px; background: #16a34a; color: #fff; margin-top: 5px; }
+.ef-w-tag { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.58rem; letter-spacing: 2px; padding: 2px 8px; background: #7c3aed; color: #fff; margin-top: 5px; }
 .ef-mid       { text-align: center; }
 .ef-vs-text   { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; color: #e8001f; }
 
@@ -374,7 +375,7 @@ button { cursor: pointer; border: none; }
 /* ── TICKET BAR ── */
 .ticket-bar {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 500;
-  background: #111827; border-top: 3px solid #e8001f;
+  background: #111827; border-top: 3px solid #7c3aed;
   transform: translateY(100%); transition: transform 0.35s ease;
   box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
 }
@@ -399,7 +400,7 @@ button { cursor: pointer; border: none; }
 .ticket-feature {
   display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
   background: #111827; color: #fff; padding: 40px 44px; margin-bottom: 44px;
-  border-left: 6px solid #e8001f;
+  border-left: 6px solid #7c3aed;
 }
 .ticket-badge { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 12px; }
 .ppv-col { color: #a78bfa; }
@@ -418,7 +419,7 @@ button { cursor: pointer; border: none; }
 .price-sub   { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; color: rgba(255,255,255,0.45); letter-spacing: 2px; margin-bottom: 18px; }
 
 .ticket-buy-btn {
-  width: 100%; background: #e8001f; color: #fff;
+  width: 100%; background: linear-gradient(135deg, #7c3aed, #e8001f); color: #fff;
   font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem;
   letter-spacing: 3px; padding: 14px; text-transform: uppercase; transition: opacity 0.2s;
 }
@@ -457,7 +458,7 @@ button { cursor: pointer; border: none; }
 .modal-overlay.open { opacity: 1; pointer-events: all; }
 .modal-box {
   background: #fff; max-width: 460px; width: 90%; padding: 36px 32px;
-  position: relative; border-top: 5px solid #e8001f;
+  position: relative; border-top: 5px solid #7c3aed;
   box-shadow: 0 20px 60px rgba(0,0,0,0.2);
   animation: popIn 0.28s ease;
 }
@@ -471,8 +472,8 @@ button { cursor: pointer; border: none; }
 .modal-section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 4px; color: #999; text-transform: uppercase; margin-bottom: 10px; }
 .modal-tiers { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 20px; }
 .modal-tier { border: 2px solid #eee; padding: 12px 8px; text-align: center; cursor: pointer; transition: all 0.2s; }
-.modal-tier:hover    { border-color: #e8001f; }
-.modal-tier.selected { border-color: #e8001f; background: #fff5f5; }
+.modal-tier:hover    { border-color: #7c3aed; }
+.modal-tier.selected { border-color: #7c3aed; background: #f5f3ff; }
 .tier-name  { font-family: 'Barlow Condensed', sans-serif; font-size: 0.68rem; letter-spacing: 2px; color: #666; text-transform: uppercase; margin-bottom: 4px; }
 .tier-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #111; }
 .modal-qty-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding: 14px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
@@ -483,12 +484,12 @@ button { cursor: pointer; border: none; }
 .modal-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 .modal-total-row span:first-child { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 3px; color: #999; text-transform: uppercase; }
 .modal-total-row span:last-child  { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #e8001f; }
-.modal-confirm-btn { width: 100%; background: #e8001f; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 4px; padding: 15px; text-transform: uppercase; transition: opacity 0.2s; margin-bottom: 10px; }
+.modal-confirm-btn { width: 100%; background: linear-gradient(135deg, #7c3aed, #e8001f); color: #fff; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 4px; padding: 15px; text-transform: uppercase; transition: opacity 0.2s; margin-bottom: 10px; }
 .modal-confirm-btn:hover { opacity: 0.88; }
 .modal-demo-note { font-size: 0.75rem; color: #bbb; text-align: center; }
 
 /* ── FOOTER ── */
-.site-footer { background: #111; color: #fff; padding: 48px 36px; text-align: center; border-top: 3px solid #e8001f; }
+.site-footer { background: #111; color: #fff; padding: 48px 36px; text-align: center; border-top: 3px solid transparent; border-image: linear-gradient(90deg, #7c3aed, #e8001f) 1; }
 .footer-inner { max-width: 600px; margin: 0 auto; }
 .footer-logo  { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 5px; margin-bottom: 12px; }
 .footer-note  { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 20px; }
