@@ -22,6 +22,7 @@
         <button class="nav-tab active" data-page="events">🗓 EVENTS</button>
         <button class="nav-tab" data-page="search">🔍 FIGHTER SEARCH</button>
         <button class="nav-tab" data-page="tickets">🎟 TICKETS</button>
+        <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" title="Toggle dark mode">🌙</button>
       </nav>
     </div>
     <div class="header-ticker">
@@ -36,6 +37,21 @@
     </div>
   </header>
 
+  <!-- STATS BAR — live UFC record counters -->
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><span class="stat-num" id="stat-events">12</span><span class="stat-label">Events This Year</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><span class="stat-num" id="stat-fights">89</span><span class="stat-label">Fights Completed</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><span class="stat-num" id="stat-ko">41</span><span class="stat-label">KO / TKO Finishes</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><span class="stat-num" id="stat-sub">18</span><span class="stat-label">Submissions</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><span class="stat-num" id="stat-upcoming">4</span><span class="stat-label">Upcoming Events</span></div>
+    </div>
+  </div>
+
   <!-- PAGE: EVENTS -->
   <div id="page-events" class="page active">
     <section class="hero">
@@ -47,6 +63,53 @@
         <a href="#events-grid" class="hero-cta">BROWSE EVENTS ↓</a>
       </div>
     </section>
+    <!-- SPOTLIGHT — Fighter of the Moment -->
+    <section class="spotlight-section">
+      <div class="inner-wrap">
+        <div class="spotlight-card">
+          <div class="spotlight-left">
+            <div class="spotlight-label">⭐ FIGHTER SPOTLIGHT</div>
+            <div class="spotlight-name">SEAN STRICKLAND</div>
+            <div class="spotlight-title">UFC MIDDLEWEIGHT CHAMPION</div>
+            <div class="spotlight-record">31 — 7 — 0</div>
+            <p class="spotlight-bio">The outspoken Tarzan pulled off one of the biggest upsets of 2026, defeating Khamzat Chimaev via split decision at UFC 328 to claim the middleweight belt for the second time in his career. Known for his relentless pressure boxing and iron chin.</p>
+            <div class="spotlight-stats">
+              <div class="spotlight-stat"><div class="ss-num">76%</div><div class="ss-label">Win Rate</div></div>
+              <div class="spotlight-stat"><div class="ss-num">6'1"</div><div class="ss-label">Height</div></div>
+              <div class="spotlight-stat"><div class="ss-num">76"</div><div class="ss-label">Reach</div></div>
+              <div class="spotlight-stat"><div class="ss-num">33</div><div class="ss-label">Age</div></div>
+            </div>
+          </div>
+          <div class="spotlight-right">
+            <div class="spotlight-belt-badge">🏆</div>
+            <div class="spotlight-division">MIDDLEWEIGHT</div>
+            <div class="spotlight-next-label">NEXT DEFENCE</div>
+            <div class="spotlight-next">vs. TBA · UFC 329</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAMPION RANKINGS STRIP -->
+    <section class="rankings-section">
+      <div class="inner-wrap">
+        <div class="rankings-label">CURRENT UFC CHAMPIONS</div>
+        <div class="rankings-strip">
+          <div class="rank-chip"><span class="rc-div">HW</span><span class="rc-name">Tom Aspinall</span><span class="rc-flag">🇬🇧</span></div>
+          <div class="rank-chip"><span class="rc-div">LHW</span><span class="rc-name">Carlos Ulberg</span><span class="rc-flag">🇳🇿</span></div>
+          <div class="rank-chip rc-purple"><span class="rc-div">MW</span><span class="rc-name">Sean Strickland</span><span class="rc-flag">🇺🇸</span></div>
+          <div class="rank-chip"><span class="rc-div">WW</span><span class="rc-name">Islam Makhachev</span><span class="rc-flag">🇷🇺</span></div>
+          <div class="rank-chip"><span class="rc-div">LW</span><span class="rc-name">Ilia Topuria</span><span class="rc-flag">🇬🇪</span></div>
+          <div class="rank-chip"><span class="rc-div">FW</span><span class="rc-name">A. Volkanovski</span><span class="rc-flag">🇦🇺</span></div>
+          <div class="rank-chip"><span class="rc-div">BW</span><span class="rc-name">Petr Yan</span><span class="rc-flag">🇷🇺</span></div>
+          <div class="rank-chip"><span class="rc-div">FLY</span><span class="rc-name">Joshua Van</span><span class="rc-flag">🇲🇲</span></div>
+          <div class="rank-chip rc-purple"><span class="rc-div">W-SW</span><span class="rc-name">Mackenzie Dern</span><span class="rc-flag">🇺🇸</span></div>
+          <div class="rank-chip"><span class="rc-div">W-FLY</span><span class="rc-name">V. Shevchenko</span><span class="rc-flag">🇰🇬</span></div>
+          <div class="rank-chip"><span class="rc-div">W-BW</span><span class="rc-name">Kayla Harrison</span><span class="rc-flag">🇺🇸</span></div>
+        </div>
+      </div>
+    </section>
+
     <section class="content-section" id="events-grid">
       <div class="inner-wrap">
         <div class="section-header">

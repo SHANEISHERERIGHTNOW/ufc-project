@@ -833,3 +833,23 @@ document.addEventListener("DOMContentLoaded", () => {
   and showPrompt displays the default message on the Fighter
   Search page telling you to type a name.
 */
+
+
+// ── DARK MODE ─────────────────────────────────────────────────
+
+// toggleDark — switches the site between light and dark mode
+function toggleDark() {
+  document.body.classList.toggle("dark");  // add or remove the "dark" class on the body element
+  const btn = document.getElementById("darkToggle");  // find the toggle button
+  btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";  // swap the icon
+  localStorage.setItem("dark", document.body.classList.contains("dark"));  // remember the preference
+}
+
+// On page load, check if the user previously turned on dark mode and apply it
+if (localStorage.getItem("dark") === "true") {
+  document.body.classList.add("dark");  // turn on dark mode
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("darkToggle");  // find the button
+    if (btn) btn.textContent = "☀️";  // set the icon to the sun (light mode icon)
+  });
+}

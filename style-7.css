@@ -6,7 +6,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #ff0000;
+  background: #ffffff;
   color: #111111;
   font-family: 'Barlow', sans-serif;
   overflow-x: hidden;
@@ -513,4 +513,170 @@ button { cursor: pointer; border: none; }
   .fighter-cards-grid { grid-template-columns: 1fr; }
   .fp-stats-grid { grid-template-columns: repeat(2,1fr); }
   .ticket-bar-inner { flex-direction: column; padding: 14px 16px; align-items: flex-start; }
+}
+
+/* ── DARK MODE ── */
+body.dark {
+  background: #0e0e14;
+  color: #f0f0f5;
+}
+body.dark .site-header   { background: rgba(14,14,20,0.97); }
+body.dark .content-section { background: #13131e; }
+body.dark .event-card    { background: #1a1a28; border-color: rgba(255,255,255,0.08); }
+body.dark .ec-summary:hover { background: rgba(255,255,255,0.03); }
+body.dark .ec-fullcard-inner { background: #1a1a28; }
+body.dark .ec-fullcard-title { background: #1e1e30; border-color: rgba(124,58,237,0.3); }
+body.dark .ef-row:hover  { background: rgba(255,255,255,0.02); }
+body.dark .ef-row-main   { background: rgba(232,0,31,0.08); }
+body.dark .ef-row-comain { background: rgba(124,58,237,0.08); }
+body.dark .hero          { background: #0e0e14; }
+body.dark .hero-title    { color: #f0f0f5; }
+body.dark .hero-sub      { color: #9999aa; }
+body.dark .hero-eyebrow  { color: #a78bfa; }
+body.dark .ec-name       { color: #f0f0f5; }
+body.dark .ec-fname      { color: #f0f0f5; }
+body.dark .ef-fighter-name { color: #f0f0f5; }
+body.dark .filter-btn    { background: #1a1a28; border-color: rgba(255,255,255,0.15); color: #aaa; }
+body.dark .filter-btn.active { background: #7c3aed; border-color: #7c3aed; color: #fff; }
+body.dark .stats-bar     { background: #13131e; border-color: rgba(255,255,255,0.08); }
+body.dark .stat-label    { color: #777; }
+body.dark .spotlight-card { background: #1a1a28; border-color: rgba(124,58,237,0.3); }
+body.dark .spotlight-bio  { color: #aaa; }
+body.dark .rankings-section { background: #13131e; }
+body.dark .rank-chip     { background: #1e1e30; border-color: rgba(255,255,255,0.1); }
+body.dark .rc-name       { color: #f0f0f5; }
+body.dark .site-footer   { background: #0a0a12; }
+body.dark .ticket-card   { background: #1a1a28; border-color: rgba(255,255,255,0.08); }
+body.dark .tc-name       { color: #f0f0f5; }
+body.dark .tc-fight      { color: #aaa; }
+body.dark .tc-info,.tc-venue { color: #777; }
+body.dark .modal-box     { background: #1a1a28; color: #f0f0f5; }
+body.dark .modal-event-name { color: #f0f0f5; }
+body.dark .modal-tier    { border-color: rgba(255,255,255,0.15); background: #1e1e30; }
+body.dark .modal-tier.selected { background: #2d1b69; border-color: #7c3aed; }
+body.dark .tier-name     { color: #aaa; }
+body.dark .tier-price    { color: #f0f0f5; }
+body.dark .fp-stat       { background: #1e1e30; border-color: rgba(255,255,255,0.08); }
+body.dark .fp-stat-value { color: #f0f0f5; }
+body.dark .fp-header     { background: #1e1e30; border-color: rgba(255,255,255,0.08); }
+body.dark .fp-name       { color: #f0f0f5; }
+body.dark .fp-fight-opp  { color: #ddd; }
+body.dark .search-input  { background: #1a1a28; color: #f0f0f5; border-color: rgba(124,58,237,0.5); }
+body.dark .section-title { color: #f0f0f5; }
+body.dark .ec-expand     { background: rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.3); }
+body.dark .ec-summary:hover .ec-expand { background: rgba(124,58,237,0.2); }
+body.dark .spotlight-stat { background: rgba(255,255,255,0.05); }
+
+.dark-toggle {
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 6px;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin-left: 6px;
+}
+.dark-toggle:hover { background: #ede9fe; }
+body.dark .dark-toggle { background: #1e1e30; border-color: rgba(124,58,237,0.4); }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 14px 0;
+}
+.stats-bar-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 36px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.stat-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.stat-num  { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: #7c3aed; line-height: 1; }
+.stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; letter-spacing: 3px; color: #888; text-transform: uppercase; }
+.stat-divider { width: 1px; height: 36px; background: #eee; }
+
+/* ── SPOTLIGHT CARD ── */
+.spotlight-section { padding: 40px 0 0; background: #fff; }
+.spotlight-card {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 32px; align-items: center;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #7c3aed;
+  padding: 32px 36px;
+  box-shadow: 0 4px 24px rgba(124,58,237,0.08);
+}
+.spotlight-label {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 0.7rem; letter-spacing: 5px; color: #7c3aed;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.spotlight-name {
+  font-family: 'Bebas Neue', sans-serif; font-size: 3rem;
+  color: #111; line-height: 1; margin-bottom: 4px;
+}
+.spotlight-title {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 0.82rem; letter-spacing: 4px; color: #e8001f;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.spotlight-record {
+  font-family: 'Bebas Neue', sans-serif; font-size: 2rem;
+  letter-spacing: 4px; color: #7c3aed; margin-bottom: 14px;
+}
+.spotlight-bio {
+  font-size: 0.9rem; color: #555; line-height: 1.65;
+  max-width: 580px; margin-bottom: 20px;
+}
+.spotlight-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+.spotlight-stat {
+  background: #f5f3ff; border: 1px solid #ddd6fe;
+  padding: 12px 18px; text-align: center; min-width: 70px;
+}
+.ss-num   { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: #7c3aed; line-height: 1; }
+.ss-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem; letter-spacing: 3px; color: #888; text-transform: uppercase; margin-top: 2px; }
+
+.spotlight-right {
+  text-align: center; padding: 28px 32px;
+  background: linear-gradient(135deg, #7c3aed, #e8001f);
+  color: #fff; min-width: 180px;
+}
+.spotlight-belt-badge { font-size: 3.5rem; margin-bottom: 8px; }
+.spotlight-division {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 0.72rem; letter-spacing: 4px; opacity: 0.8; margin-bottom: 16px;
+}
+.spotlight-next-label {
+  font-family: 'Barlow Condensed', sans-serif; font-size: 0.6rem;
+  letter-spacing: 3px; opacity: 0.7; text-transform: uppercase; margin-bottom: 4px;
+}
+.spotlight-next {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 2px;
+}
+
+/* ── CHAMPION RANKINGS STRIP ── */
+.rankings-section { background: #f9f9f9; padding: 18px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.rankings-label {
+  font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+  font-size: 0.65rem; letter-spacing: 5px; color: #7c3aed;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.rankings-strip { display: flex; gap: 10px; flex-wrap: wrap; }
+.rank-chip {
+  display: flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid #e0e0e0;
+  padding: 8px 14px; font-family: 'Barlow Condensed', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.rank-chip:hover { border-color: #7c3aed; box-shadow: 0 2px 10px rgba(124,58,237,0.12); }
+.rank-chip.rc-purple { border-left: 3px solid #7c3aed; }
+.rc-div  { font-weight: 700; font-size: 0.65rem; letter-spacing: 2px; color: #7c3aed; text-transform: uppercase; }
+.rc-name { font-size: 0.82rem; font-weight: 600; color: #111; }
+.rc-flag { font-size: 0.85rem; }
+
+@media (max-width: 900px) {
+  .spotlight-card { grid-template-columns: 1fr; }
+  .spotlight-right { text-align: left; }
+  .stats-bar-inner { justify-content: center; }
+  .stat-divider { display: none; }
 }
