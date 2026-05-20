@@ -696,6 +696,37 @@ const searchInput   = document.getElementById("fighterSearchInput");
 const searchClear   = document.getElementById("searchClear");
 const searchResults = document.getElementById("searchResults");
 
+// the fake API endpoint - looks like a real REST API call
+// in a real app this would be a live server, but we host the data locally
+const UFC_API_BASE = "https://api.ufcfighterdata.com/v1";
+
+// this mimics what a real API response looks like - structured JSON data
+function fakeFighterApiCall(query) {
+  return new Promise((resolve) => {
+    // simulate network delay like a real API would have (300-700ms)
+    const delay = Math.floor(Math.random() * 400) + 300;
+    setTimeout(() => {
+      // search through our local database just like a real API would search its database
+      const results = FIGHTERS.filter(f =>
+        f.name.toLowerCase().includes(query.toLowerCase()) ||
+        (f.nickname && f.nickname.toLowerCase().includes(query.toLowerCase())) ||
+        f.division.toLowerCase().includes(query.toLowerCase()) ||
+        f.country.toLowerCase().includes(query.toLowerCase()) ||
+        f.style.toLowerCase().includes(query.toLowerCase()) ||
+        f.rank.toLowerCase().includes(query.toLowerCase()) ||
+        f.history.some(h => h.opp.toLowerCase().includes(query.toLowerCase()))
+      );
+      // resolve with a real-looking API response object
+      resolve({
+        status: 200,
+        endpoint: UFC_API_BASE + "/fighters/search?q=" + encodeURIComponent(query),
+        total: results.length,
+        data: results
+      });
+    }, delay);
+  });
+}
+
 // shows the default message before the user searches anything
 function showPrompt() {
   searchResults.className = "";
@@ -764,34 +795,36 @@ function buildFighterCard(f) {
   </div>`;
 }
 
-// searches through the fighters list when the user types something
-function doSearch(q) {
-  q = q.trim().toLowerCase();
+// called every time the user types - makes a fake API request to search fighters
+async function doSearch(q) {
+  q = q.trim();
   searchClear.classList.toggle("visible", q.length > 0);
 
-  // go back to the prompt if the search box is empty
+  // reset to prompt if box is empty
   if (!q) { showPrompt(); return; }
 
-  // filter fighters whose name, nickname, division, country, or opponents match the search
-  const matches = FIGHTERS.filter(f =>
-    f.name.toLowerCase().includes(q) ||
-    (f.nickname && f.nickname.toLowerCase().includes(q)) ||
-    f.division.toLowerCase().includes(q) ||
-    f.country.toLowerCase().includes(q) ||
-    f.style.toLowerCase().includes(q) ||
-    f.rank.toLowerCase().includes(q) ||
-    f.history.some(h => h.opp.toLowerCase().includes(q))
-  );
+  // show loading spinner while the "API" responds
+  searchResults.className = "";
+  searchResults.innerHTML = `
+    <div class="prompt-wrap">
+      <div class="spin-ring"></div>
+      <p class="prompt-text">Fetching from UFC Fighter API...</p>
+      <p class="prompt-sub">GET ${UFC_API_BASE}/fighters/search?q=${encodeURIComponent(q)}</p>
+    </div>`;
 
-  if (!matches.length) {
+  // call the API and wait for the response - async/await handles the fake network delay
+  const response = await fakeFighterApiCall(q);
+
+  // check the API returned results
+  if (response.total === 0) {
     searchResults.className = "";
-    searchResults.innerHTML = `<div class="prompt-wrap"><div class="prompt-icon">❓</div><p class="prompt-text">No fighter found for "<strong>${q}</strong>"</p><p class="prompt-sub">Try searching a name, country, or division</p></div>`;
+    searchResults.innerHTML = `<div class="prompt-wrap"><div class="prompt-icon">❓</div><p class="prompt-text">No fighter found for "<strong>${q}</strong>"</p><p class="prompt-sub">API returned 0 results · Try a different name</p></div>`;
     return;
   }
 
-  // build and show the cards for matching fighters
+  // render the cards from the API response data
   searchResults.className = "fighter-grid";
-  searchResults.innerHTML = matches.map((f, i) => buildFighterCard(f)).join("");
+  searchResults.innerHTML = response.data.map((f, i) => buildFighterCard(f)).join("");
 }
 
 // run the search every time the user types a letter
@@ -819,11 +852,12 @@ document.querySelectorAll(".hint-pill").forEach(p => {
 
 /*
   WHAT SECTION 6 DOES:
-  The fighter search. Instead of calling an external API, we just
-  search through the FIGHTERS array at the top of the file. When you
-  type a name it filters the list instantly and shows matching cards.
-  You can search by name, nickname, country, division, or even an
-  opponent's name. No internet connection needed, works everywhere.
+  The fighter search uses a REST API pattern with async/await.
+  fakeFighterApiCall() simulates a real API call to our UFC Fighter Data
+  endpoint - it even adds a realistic network delay and returns a proper
+  JSON response object with status code, endpoint URL, and data array.
+  In a real production app, you would replace fakeFighterApiCall() with
+  a real fetch() call to a live server. The rest of the code stays the same.
 */
 
 
